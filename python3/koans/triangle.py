@@ -17,6 +17,16 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
+
+    points = sorted([a, b, c])
+    largest = points[2]
+    rest = points[:2]
+
+    # if the largest side is >= the sum of the other two,
+    # this cannot be a triangle
+    if largest >= sum(rest):
+        raise TriangleError
+
     if a == b and a == c:
         return 'equilateral'
     
